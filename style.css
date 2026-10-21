@@ -1,0 +1,378 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+color:#1e3a8a;
+}
+
+[hidden]{
+display:none !important;
+}
+
+body{
+background:#eef3ff;
+}
+
+/* ---------- Login / Signup ---------- */
+#auth{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:16px;
+background:linear-gradient(135deg,#1d4ed8,#60a5fa);
+}
+
+.auth-card{
+background:white;
+width:100%;
+max-width:380px;
+padding:30px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+text-align:center;
+}
+
+.auth-card p{
+margin:6px 0 18px;
+}
+
+.tabs{
+display:flex;
+margin-bottom:16px;
+border:1px solid #bfdbfe;
+border-radius:8px;
+overflow:hidden;
+}
+
+.tabs button{
+flex:1;
+border-radius:0;
+background:white;
+}
+
+.tabs button.active{
+background:#2563eb;
+color:white;
+}
+
+#authForm{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+#authMsg{
+color:#dc2626;
+font-size:14px;
+min-height:18px;
+margin:0;
+}
+
+/* ---------- Inputs and buttons ---------- */
+input,select{
+padding:10px;
+border:1px solid #bfdbfe;
+border-radius:8px;
+font-size:15px;
+background:white;
+}
+
+input:focus,select:focus{
+outline:2px solid #3b82f6;
+}
+
+button{
+cursor:pointer;
+border:none;
+border-radius:8px;
+padding:10px 14px;
+font-weight:bold;
+background:#dbeafe;
+transition:background 0.2s;
+}
+
+button:hover{
+background:#bfdbfe;
+}
+
+.primary{
+background:#2563eb;
+color:white;
+}
+
+.primary:hover{
+background:#1d4ed8;
+}
+
+/* ---------- Header ---------- */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+padding:16px 5%;
+background:linear-gradient(135deg,#1d4ed8,#3b82f6);
+}
+
+header *{
+color:white;
+}
+
+header button{
+background:rgba(255,255,255,0.2);
+}
+
+header button:hover{
+background:rgba(255,255,255,0.35);
+}
+
+/* ---------- Dashboard layout ---------- */
+main{
+max-width:1100px;
+margin:20px auto;
+padding:0 16px;
+display:grid;
+gap:18px;
+}
+
+.card{
+background:white;
+border-radius:14px;
+padding:18px;
+box-shadow:0 3px 12px rgba(30,64,175,0.12);
+transition:transform 0.2s;
+}
+
+.card:hover{
+transform:translateY(-3px);
+}
+
+.card h2{
+font-size:1.05rem;
+margin-bottom:12px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:16px;
+}
+
+.stats h3{
+font-size:0.8rem;
+text-transform:uppercase;
+opacity:0.7;
+}
+
+.big{
+font-size:1.7rem;
+font-weight:bold;
+}
+
+small{
+color:#6b7fc0;
+}
+
+.budget-row{
+display:flex;
+gap:6px;
+margin:6px 0;
+}
+
+.budget-row input{
+flex:1;
+min-width:0;
+}
+
+.bar{
+height:10px;
+background:#dbeafe;
+border-radius:99px;
+overflow:hidden;
+margin-bottom:4px;
+}
+
+#progress{
+height:100%;
+width:0;
+background:#22c55e;
+transition:width 0.4s,background 0.3s;
+}
+
+#form{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+}
+
+/* ---------- Charts ---------- */
+.charts{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+canvas{
+display:block;
+margin:auto;
+max-width:100%;
+}
+
+ul{
+list-style:none;
+}
+
+#legend{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+gap:6px;
+margin-top:12px;
+font-size:0.9rem;
+}
+
+/* ---------- Expense list ---------- */
+.toolbar{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:10px;
+margin-bottom:10px;
+}
+
+.chips{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:12px;
+}
+
+.chip{
+border-radius:99px;
+padding:6px 14px;
+font-size:14px;
+}
+
+.chip.active{
+background:#2563eb;
+color:white;
+}
+
+#trash{
+border:2px dashed #93c5fd;
+border-radius:10px;
+padding:10px;
+text-align:center;
+margin-bottom:12px;
+transition:all 0.2s;
+}
+
+#trash.over{
+border-color:#dc2626;
+background:#fee2e2;
+color:#dc2626;
+}
+
+#list li{
+display:flex;
+align-items:center;
+gap:12px;
+padding:10px;
+margin-bottom:8px;
+border:1px solid #dbeafe;
+border-radius:10px;
+background:#f8faff;
+cursor:grab;
+transition:box-shadow 0.2s;
+}
+
+#list li:hover{
+box-shadow:0 2px 8px rgba(37,99,235,0.2);
+}
+
+#list li div{
+flex:1;
+}
+
+#list small{
+display:block;
+}
+
+#list button{
+padding:4px 8px;
+}
+
+#list button:hover{
+background:#fee2e2;
+}
+
+.ico{
+width:40px;
+height:40px;
+border-radius:10px;
+display:grid;
+place-items:center;
+font-size:1.2rem;
+}
+
+.empty{
+text-align:center;
+opacity:0.6;
+}
+
+/* ---------- Toast messages ---------- */
+#toast{
+position:fixed;
+bottom:20px;
+right:20px;
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.toast{
+background:#1e3a8a;
+color:white;
+padding:10px 16px;
+border-radius:8px;
+animation:pop 0.3s;
+}
+
+@keyframes pop{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width:800px){
+.charts{
+grid-template-columns:1fr;
+}
+.toolbar{
+grid-template-columns:1fr;
+}
+}
+/* ---------- Income feature ---------- */
+.plus{
+color:#16a34a;
+}
+
+.minus{
+color:#dc2626;
+}
+
+.type-toggle{
+grid-column:1/-1;
+margin-bottom:0;
+}
+
+#form.income .primary{
+background:#16a34a;
+}
+
+#form.income .primary:hover{
+background:#15803d;
+}

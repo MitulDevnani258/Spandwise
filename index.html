@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spendwise | Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOGIN / SIGNUP -->
+  <section id="auth">
+    <div class="auth-card">
+      <h1>💸 Spendwise</h1>
+      <p>Track every rupee, smartly.</p>
+      <div class="tabs">
+        <button type="button" id="tabLogin" class="active">Login</button>
+        <button type="button" id="tabSignup">Sign Up</button>
+      </div>
+      <form id="authForm">
+        <input id="name" placeholder="Full name" hidden>
+        <input id="username" placeholder="Username" required>
+        <input id="password" type="password" placeholder="Password (min 4 characters)" required>
+        <p id="authMsg"></p>
+        <button class="primary" id="authBtn">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <div id="app" hidden>
+    <header>
+      <h1 id="hello"></h1>
+      <div>
+        <button id="csv">⬇ Export CSV</button>
+        <button id="logout">Logout</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="stats">
+        <article class="card"><h3>Balance</h3><p class="big" id="balance">₹0</p><small id="usd"></small></article>
+        <article class="card"><h3>Total Income</h3><p class="big plus" id="income">₹0</p></article>
+        <article class="card"><h3>Total Spent</h3><p class="big minus" id="total">₹0</p></article>
+        <article class="card"><h3>Spent This Month</h3><p class="big" id="month">₹0</p></article>
+        <article class="card">
+          <h3>Monthly Budget</h3>
+          <div class="budget-row">
+            <input id="budget" type="number" min="0" placeholder="Set budget">
+            <button id="budgetBtn" class="primary">Save</button>
+          </div>
+          <div class="bar"><div id="progress"></div></div>
+          <small id="budgetText">No budget set</small>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>➕ Add Transaction</h2>
+        <form id="form">
+          <div class="tabs type-toggle">
+            <button type="button" id="tExp" class="active">Expense</button>
+            <button type="button" id="tInc">Income</button>
+          </div>
+          <input id="title" placeholder="Title (e.g. Lunch)" required>
+          <input id="amount" type="number" min="1" step="0.01" placeholder="Amount (₹)" required>
+          <select id="cat"></select>
+          <input id="date" type="date" required>
+          <button class="primary" id="addBtn">Add Expense</button>
+        </form>
+      </section>
+
+      <section class="charts">
+        <div class="card">
+          <h2>Spending by Category</h2>
+          <canvas id="pie" width="250" height="250"></canvas>
+          <ul id="legend"></ul>
+        </div>
+        <div class="card">
+          <h2>Income vs Expense (6 months)</h2>
+          <canvas id="bar" width="400" height="200"></canvas>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>📋 Transactions</h2>
+        <div class="toolbar">
+          <input id="search" type="search" placeholder="Search transactions...">
+          <select id="sort">
+            <option value="date-desc">Newest first</option>
+            <option value="date-asc">Oldest first</option>
+            <option value="amount-desc">Amount: high to low</option>
+            <option value="amount-asc">Amount: low to high</option>
+          </select>
+        </div>
+        <div class="chips" id="chips"></div>
+        <div id="trash">🗑️ Drag a transaction here to delete</div>
+        <ul id="list"></ul>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
